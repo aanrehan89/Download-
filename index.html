@@ -1,255 +1,140 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portofolio Aan Rehan</title>
-<style>
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  body {
-    background-color: #0d1117;
-    color: #e6edf3;
-    font-family: "Poppins", sans-serif;
-  }
-  header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 25px;
-    background-color: #161b22;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-  }
-  header h1 {
-    color: #3b82f6;
-    font-size: 20px;
-  }
-  .menu-toggle {
-    background-color: #22c55e;
-    border: none;
-    border-radius: 8px;
-    padding: 8px 10px;
-    cursor: pointer;
-  }
-  nav {
-    display: none;
-    flex-direction: column;
-    background-color: #161b22;
-    position: absolute;
-    top: 60px;
-    right: 20px;
-    border-radius: 8px;
-    overflow: hidden;
-  }
-  nav a {
-    color: #e6edf3;
-    padding: 12px 20px;
-    text-decoration: none;
-    border-bottom: 1px solid #2d333b;
-  }
-  nav a:hover {
-    background-color: #2d333b;
-  }
-  .menu-active {
-    display: flex;
-  }
-  main {
-    padding: 30px;
-    min-height: 100vh;
-    animation: fadeIn 0.5s ease-in-out;
-  }
-  @keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity: 1;}
-  }
-  section {
-    display: none;
-    animation: fadeIn 0.5s ease-in-out;
-  }
-  section.active {
-    display: block;
-  }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Untuk Bocil</title>
 
-  /* PORTOFOLIO */
-  .cert-container {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-    align-items: center;
-    margin-top: 20px;
-  }
-  .cert {
-    background-color: #161b22;
-    padding: 15px;
-    border-radius: 12px;
-    box-shadow: 0 0 10px rgba(255,255,255,0.05);
-    width: 90%;
-    max-width: 500px;
-    text-align: center;
-  }
-  .cert img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-  }
-  .cert p {
-    margin-top: 10px;
-    font-size: 14px;
-    color: #9ca3af;
-  }
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family: Arial, sans-serif;
+    }
 
-  /* DOWNLOAD */
-  .download-box {
-    text-align: center;
-    background-color: #161b22;
-    padding: 20px;
-    border-radius: 12px;
-    max-width: 500px;
-    margin: 20px auto;
-  }
-  input {
-    width: 100%;
-    padding: 10px;
-    border-radius: 6px;
-    border: none;
-    margin-top: 10px;
-  }
-  button {
-    margin-top: 15px;
-    background-color: #22c55e;
-    color: #fff;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 6px;
-    cursor: pointer;
-  }
-  video {
-    margin-top: 20px;
-    max-width: 100%;
-    border-radius: 10px;
-  }
+    body{
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      background: linear-gradient(135deg, #ff4e8a, #ff9a9e);
+      overflow:hidden;
+    }
 
-  /* CONTACT */
-  .contact-box {
-    text-align: center;
-    background-color: #161b22;
-    padding: 20px;
-    border-radius: 12px;
-    max-width: 400px;
-    margin: 20px auto;
-  }
-</style>
+    .love-bg span{
+      position:absolute;
+      color:white;
+      animation: float 6s linear infinite;
+      opacity:0.7;
+    }
+
+    @keyframes float{
+      0%{
+        transform: translateY(100vh) scale(0);
+      }
+      100%{
+        transform: translateY(-10vh) scale(1.5);
+      }
+    }
+
+    .card{
+      background:white;
+      padding:40px;
+      border-radius:25px;
+      text-align:center;
+      width:350px;
+      box-shadow:0 10px 30px rgba(0,0,0,0.2);
+      position:relative;
+      z-index:2;
+    }
+
+    h1{
+      color:#ff2e63;
+      margin-bottom:15px;
+    }
+
+    p{
+      color:#444;
+      line-height:1.6;
+      margin-bottom:25px;
+    }
+
+    .heart{
+      font-size:60px;
+      animation: beat 1s infinite;
+    }
+
+    @keyframes beat{
+      0%{ transform: scale(1); }
+      50%{ transform: scale(1.2); }
+      100%{ transform: scale(1); }
+    }
+
+    button{
+      background:#ff2e63;
+      color:white;
+      border:none;
+      padding:12px 25px;
+      border-radius:30px;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    button:hover{
+      background:#ff004c;
+      transform:scale(1.05);
+    }
+
+    .hidden-message{
+      margin-top:20px;
+      display:none;
+      color:#ff2e63;
+      font-weight:bold;
+      font-size:20px;
+    }
+  </style>
 </head>
 <body>
 
-<header>
-  <h1>Portofolio Aan Rehan</h1>
-  <button class="menu-toggle">☰</button>
-  <nav id="menu">
-    <a href="#" data-page="portofolio">Portofolio</a>
-    <a href="#" data-page="tiktok">Download TikTok</a>
-    <a href="#" data-page="contact">Contact</a>
-  </nav>
-</header>
+  <div class="love-bg" id="loveBg"></div>
 
-<main>
-  <!-- PORTOFOLIO -->
-  <section id="portofolio" class="active">
-    <h2>Portofolio Aan Rehan</h2>
-    <div class="cert-container">
-      <div class="cert">
-        <img src="https://l.top4top.io/p_3592unpp80.jpg" alt="Sertifikat 1">
-        <p>Sertifikat Pelatihan Web Development</p>
-      </div>
-      <div class="cert">
-        <img src="https://g.top4top.io/p_3592ucw840.jpg" alt="Sertifikat 2">
-        <p>Sertifikat Workshop Desain Grafis</p>
-      </div>
-      <div class="cert">
-        <img src="https://via.placeholder.com/500x400" alt="Sertifikat 3">
-        <p>Sertifikat Kompetisi Coding</p>
-      </div>
+  <div class="card">
+    <div class="heart">❤️</div>
+
+    <h1>Hai Pendek</h1>
+
+    <p>
+      Aku cuma mau bilang...<br><br>
+      Sejak kenal kamu, hari-hari aku jadi lebih indah 
+    </p>
+
+    <button onclick="showLove()">Klik Dong 😳</button>
+
+    <div class="hidden-message" id="loveMessage">
+      BOCILLL 16TH 150CM😝
     </div>
-  </section>
+  </div>
 
-  <!-- DOWNLOAD TIKTOK -->
-  <section id="tiktok">
-    <h2>Download Video TikTok</h2>
-    <div class="download-box">
-      <input type="text" id="tiktokUrl" placeholder="Masukkan URL TikTok">
-      <button onclick="downloadTiktok()">Download</button>
-      <div id="result"></div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <h2>Contact</h2>
-    <div class="contact-box">
-      <p>Instagram: <a href="https://instagram.com/" target="_blank">@aanrehan</a></p>
-      <p>Email: aanrehan@example.com</p>
-    </div>
-  </section>
-</main>
-
-<script>
-  // MENU TOGGLE
-  const menuBtn = document.querySelector('.menu-toggle');
-  const menu = document.getElementById('menu');
-  menuBtn.addEventListener('click', () => {
-    menu.classList.toggle('menu-active');
-  });
-
-  // PAGE SWITCH
-  const links = document.querySelectorAll('nav a');
-  const sections = document.querySelectorAll('section');
-  links.forEach(link => {
-    link.addEventListener('click', e => {
-      e.preventDefault();
-      const page = link.getAttribute('data-page');
-      sections.forEach(sec => sec.classList.remove('active'));
-      document.getElementById(page).classList.add('active');
-      menu.classList.remove('menu-active');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  });
-
-  // DOWNLOAD TIKTOK FUNCTION
-  async function downloadTiktok() {
-    const url = document.getElementById('tiktokUrl').value.trim();
-    const resultDiv = document.getElementById('result');
-    if (!url) {
-      alert('Masukkan URL TikTok terlebih dahulu!');
-      return;
+  <script>
+    function showLove(){
+      document.getElementById("loveMessage").style.display = "block";
     }
-    resultDiv.innerHTML = "<p>Memproses...</p>";
 
-    try {
-      const res = await fetch(`https://apiaku.vercel.app/api/tiktok?url=${encodeURIComponent(url)}`);
-      const data = await res.json();
+    const loveBg = document.getElementById("loveBg");
 
-      if (data.status && data.result && data.result.video) {
-        const videoUrl = data.result.video;
-        resultDiv.innerHTML = `
-          <video controls src="${videoUrl}"></video>
-          <a href="${videoUrl}" download class="download-link">
-            <button>Download ke Galeri</button>
-          </a>
-        `;
-      } else {
-        resultDiv.innerHTML = "<p>Gagal mengambil video. Coba periksa URL.</p>";
-      }
-    } catch (err) {
-      console.error(err);
-      resultDiv.innerHTML = "<p>Terjadi kesalahan koneksi API.</p>";
+    for(let i = 0; i < 30; i++){
+      let span = document.createElement("span");
+      span.innerHTML = "❤️";
+
+      span.style.left = Math.random() * 100 + "%";
+      span.style.animationDelay = Math.random() * 5 + "s";
+      span.style.fontSize = (15 + Math.random() * 20) + "px";
+
+      loveBg.appendChild(span);
     }
-  }
-</script>
+  </script>
 
 </body>
 </html>
