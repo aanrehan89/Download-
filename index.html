@@ -2,139 +2,429 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Untuk Bocil</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family: Arial, sans-serif;
-    }
+<title>For You ❤️</title>
 
-    body{
-      height:100vh;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      background: linear-gradient(135deg, #ff4e8a, #ff9a9e);
-      overflow:hidden;
-    }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    .love-bg span{
-      position:absolute;
-      color:white;
-      animation: float 6s linear infinite;
-      opacity:0.7;
-    }
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-    @keyframes float{
-      0%{
-        transform: translateY(100vh) scale(0);
-      }
-      100%{
-        transform: translateY(-10vh) scale(1.5);
-      }
-    }
+<style>
 
-    .card{
-      background:white;
-      padding:40px;
-      border-radius:25px;
-      text-align:center;
-      width:350px;
-      box-shadow:0 10px 30px rgba(0,0,0,0.2);
-      position:relative;
-      z-index:2;
-    }
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
 
-    h1{
-      color:#ff2e63;
-      margin-bottom:15px;
-    }
+body{
+  overflow:hidden;
+  background:#0f0f1a;
+  color:white;
+}
 
-    p{
-      color:#444;
-      line-height:1.6;
-      margin-bottom:25px;
-    }
+.slider{
+  width:100%;
+  height:100vh;
+  position:relative;
+}
 
-    .heart{
-      font-size:60px;
-      animation: beat 1s infinite;
-    }
+.slide{
+  position:absolute;
+  width:100%;
+  height:100vh;
 
-    @keyframes beat{
-      0%{ transform: scale(1); }
-      50%{ transform: scale(1.2); }
-      100%{ transform: scale(1); }
-    }
+  display:flex;
+  justify-content:center;
+  align-items:center;
 
-    button{
-      background:#ff2e63;
-      color:white;
-      border:none;
-      padding:12px 25px;
-      border-radius:30px;
-      cursor:pointer;
-      transition:0.3s;
-    }
+  opacity:0;
+  transform:scale(1.1);
 
-    button:hover{
-      background:#ff004c;
-      transform:scale(1.05);
-    }
+  transition:1s;
+  pointer-events:none;
+}
 
-    .hidden-message{
-      margin-top:20px;
-      display:none;
-      color:#ff2e63;
-      font-weight:bold;
-      font-size:20px;
-    }
-  </style>
+.slide.active{
+  opacity:1;
+  transform:scale(1);
+  pointer-events:auto;
+}
+
+.slide:nth-child(1){
+  background:linear-gradient(135deg,#ff4d8d,#6a00f4);
+}
+
+.slide:nth-child(2){
+  background:linear-gradient(135deg,#141e30,#243b55);
+}
+
+.slide:nth-child(3){
+  background:linear-gradient(135deg,#3a1c71,#d76d77,#ffaf7b);
+}
+
+.slide:nth-child(4){
+  background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+}
+
+.slide:nth-child(5){
+  background:linear-gradient(135deg,#fc466b,#3f5efb);
+}
+
+.content{
+  width:90%;
+  max-width:700px;
+  text-align:center;
+  padding:50px;
+  border-radius:30px;
+
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(15px);
+
+  border:1px solid rgba(255,255,255,0.1);
+
+  animation:fadeUp 1s ease;
+}
+
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(40px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+h1{
+  font-size:4rem;
+  margin-bottom:20px;
+}
+
+h2{
+  font-size:3rem;
+  margin-bottom:20px;
+}
+
+p{
+  font-size:1.2rem;
+  line-height:2;
+}
+
+.btn{
+  margin-top:30px;
+  padding:14px 35px;
+
+  border:none;
+  border-radius:999px;
+
+  background:white;
+  color:#111;
+
+  font-weight:700;
+  cursor:pointer;
+
+  transition:.3s;
+}
+
+.btn:hover{
+  transform:scale(1.08);
+}
+
+.choice{
+  margin-top:30px;
+  position:relative;
+  height:120px;
+}
+
+.no{
+  position:absolute;
+}
+
+.accepted{
+  margin-top:25px;
+  font-size:2rem;
+  font-weight:bold;
+  display:none;
+  animation:fadeUp 1s ease;
+}
+
+.hearts span{
+  position:absolute;
+  bottom:-50px;
+  color:rgba(255,255,255,.7);
+
+  animation:float linear infinite;
+}
+
+@keyframes float{
+  0%{
+    transform:translateY(0) scale(0);
+    opacity:0;
+  }
+
+  20%{
+    opacity:1;
+  }
+
+  100%{
+    transform:translateY(-120vh) scale(1.5);
+    opacity:0;
+  }
+}
+
+.music-btn{
+  position:fixed;
+  top:20px;
+  right:20px;
+
+  z-index:999;
+
+  background:rgba(255,255,255,.1);
+  backdrop-filter:blur(10px);
+
+  padding:12px 20px;
+  border-radius:999px;
+
+  cursor:pointer;
+}
+
+@media(max-width:768px){
+
+  h1{
+    font-size:2.5rem;
+  }
+
+  h2{
+    font-size:2rem;
+  }
+
+  p{
+    font-size:1rem;
+  }
+
+  .content{
+    padding:30px;
+  }
+
+}
+
+</style>
 </head>
 <body>
 
-  <div class="love-bg" id="loveBg"></div>
+<div class="music-btn" onclick="toggleMusic()">
+🎵 Music
+</div>
 
-  <div class="card">
-    <div class="heart">❤️</div>
+<audio id="bgMusic" loop>
+  <source src="musik.mp3" type="audio/mpeg">
+</audio>
 
-    <h1>Hai Pendek</h1>
+<div class="slider">
 
-    <p>
-      Aku cuma mau bilang...<br><br>
-      Sejak kenal kamu, hari-hari aku jadi lebih indah 
-    </p>
+  <!-- Slide 1 -->
+  <section class="slide active">
 
-    <button onclick="showLove()">Klik Dong 😳</button>
+    <div class="content">
 
-    <div class="hidden-message" id="loveMessage">
-      BOCILLL 16TH 150CM😝
+      <h1>Hai Kamu ❤️</h1>
+
+      <p>
+        Aku bikin website ini khusus buat satu orang...
+        dan orang itu adalah kamu 😳
+      </p>
+
+      <button class="btn" onclick="nextSlide()">
+        Next ➜
+      </button>
+
     </div>
-  </div>
 
-  <script>
-    function showLove(){
-      document.getElementById("loveMessage").style.display = "block";
-    }
+  </section>
 
-    const loveBg = document.getElementById("loveBg");
+  <!-- Slide 2 -->
+  <section class="slide">
 
-    for(let i = 0; i < 30; i++){
-      let span = document.createElement("span");
-      span.innerHTML = "❤️";
+    <div class="content">
 
-      span.style.left = Math.random() * 100 + "%";
-      span.style.animationDelay = Math.random() * 5 + "s";
-      span.style.fontSize = (15 + Math.random() * 20) + "px";
+      <h2>Aku Nyaman Sama Kamu</h2>
 
-      loveBg.appendChild(span);
-    }
-  </script>
+      <p>
+        Entah kenapa kalau sama kamu,
+        semuanya terasa lebih indah.
+      </p>
+
+      <button class="btn" onclick="nextSlide()">
+        Lanjut 💖
+      </button>
+
+    </div>
+
+  </section>
+
+  <!-- Slide 3 -->
+  <section class="slide">
+
+    <div class="content">
+
+      <h2>Kamu Tau Ga?</h2>
+
+      <p>
+        Dari semua orang yang aku kenal,
+        cuma kamu yang selalu berhasil bikin aku tenang ❤️
+      </p>
+
+      <button class="btn" onclick="nextSlide()">
+        Next ✨
+      </button>
+
+    </div>
+
+  </section>
+
+  <!-- Slide 4 -->
+  <section class="slide">
+
+    <div class="content">
+
+      <h2>Jujur Aja...</h2>
+
+      <p>
+        Aku mulai suka sama kamu 😳
+      </p>
+
+      <button class="btn" onclick="nextSlide()">
+        Terakhir ❤️
+      </button>
+
+    </div>
+
+  </section>
+
+  <!-- Slide 5 -->
+  <section class="slide">
+
+    <div class="content">
+
+      <h1>I Love You ❤️</h1>
+
+      <p>
+        Mau ga jadi orang spesial di hidup aku?
+      </p>
+
+      <div class="choice">
+
+        <button class="btn yes" onclick="loveAccepted()">
+          Mau 💖
+        </button>
+
+        <button class="btn no" id="noBtn">
+          Gamau 😭
+        </button>
+
+      </div>
+
+      <div class="accepted" id="accepted">
+        YEEEE AKU SENENG BANGETT 😭❤️
+      </div>
+
+    </div>
+
+  </section>
+
+</div>
+
+<div class="hearts" id="hearts"></div>
+
+<script>
+
+let current = 0;
+const slides = document.querySelectorAll('.slide');
+
+let musicStarted = false;
+
+function showSlide(index){
+
+  slides.forEach(slide => {
+    slide.classList.remove('active');
+  });
+
+  slides[index].classList.add('active');
+
+}
+
+function nextSlide(){
+
+  // autoplay setelah user klik
+  if(!musicStarted){
+    document.getElementById('bgMusic').play();
+    musicStarted = true;
+  }
+
+  current++;
+
+  if(current >= slides.length){
+    current = slides.length - 1;
+  }
+
+  showSlide(current);
+
+}
+
+function loveAccepted(){
+
+  document.getElementById('accepted').style.display = 'block';
+
+}
+
+function toggleMusic(){
+
+  const music = document.getElementById('bgMusic');
+
+  if(music.paused){
+    music.play();
+  }else{
+    music.pause();
+  }
+
+}
+
+const noBtn = document.getElementById('noBtn');
+
+noBtn.addEventListener('mouseover', () => {
+
+  noBtn.style.top = Math.random() * 80 + '%';
+  noBtn.style.left = Math.random() * 80 + '%';
+
+});
+
+const hearts = document.getElementById('hearts');
+
+for(let i=0;i<50;i++){
+
+  const span = document.createElement('span');
+
+  span.innerHTML = '❤';
+
+  span.style.left = Math.random()*100 + 'vw';
+
+  span.style.fontSize = (10 + Math.random()*25) + 'px';
+
+  span.style.animationDuration = (4 + Math.random()*6) + 's';
+
+  span.style.animationDelay = Math.random()*5 + 's';
+
+  hearts.appendChild(span);
+
+}
+
+</script>
 
 </body>
 </html>
