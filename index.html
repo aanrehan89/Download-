@@ -139,7 +139,7 @@ p{
 .choice{
   margin-top:30px;
   position:relative;
-  height:120px;
+  height:150px;
 }
 
 .no{
@@ -222,6 +222,7 @@ p{
 🎵 Music
 </div>
 
+<!-- GANTI musik.mp3 DENGAN FILE MUSIK KAMU -->
 <audio id="bgMusic" loop>
   <source src="musik.mp3" type="audio/mpeg">
 </audio>
@@ -257,7 +258,7 @@ p{
 
       <p>
         Entah kenapa kalau sama kamu,
-        semuanya terasa lebih indah.
+        semuanya terasa lebih indah ❤️
       </p>
 
       <button class="btn" onclick="nextSlide()">
@@ -397,10 +398,23 @@ function toggleMusic(){
 
 const noBtn = document.getElementById('noBtn');
 
-noBtn.addEventListener('mouseover', () => {
+function moveButton(){
+
+  noBtn.style.position = 'absolute';
 
   noBtn.style.top = Math.random() * 80 + '%';
   noBtn.style.left = Math.random() * 80 + '%';
+
+}
+
+// PC
+noBtn.addEventListener('mouseover', moveButton);
+
+// HP
+noBtn.addEventListener('touchstart', (e) => {
+
+  e.preventDefault();
+  moveButton();
 
 });
 
